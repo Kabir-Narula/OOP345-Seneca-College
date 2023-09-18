@@ -1,4 +1,3 @@
-# C++ Workshop Assignments Repository
 
 ## Welcome to my C++ Workshop Assignments Repository!
 
