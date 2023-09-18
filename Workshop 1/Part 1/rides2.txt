@@ -1,0 +1,6 @@
+O,Emily,Danforth,10.99,Y
+H,Ali,Broadview,12.99,N
+H,Marry,Pape,8.59,Y
+O,Mike,Donalds,5.49,N
+O,Kate,Woodbine,5.99,Y
+O,

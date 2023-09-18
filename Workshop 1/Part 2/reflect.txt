@@ -1,0 +1,79 @@
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+//I did all the code by myself and only copied the code given by professor 
+//provided to complete my workshops and assignments.
+
+                                                  [---------------REFLECT-----------------]
+
+There were various topics i covered in this workshop that includes topics such as external and internal linkage, usage of the static keyword in [counter] and also some previous topics were revised such as allocation and de-allocation of memories which are no longer in use...
+
+# Point 1: External and Internal linkage-------------------------------------
+In this workshop, I worked on topic of internal and external linkage which were earlier explained in the class before providing the workshop-1. The main difference in both is that the keyword [extern] allows use to variables across different modules and does not limit the scope of the variables only to that module,whereas the keyword [internal] allows visibility only to that translation unit.
+
+[EXAMPLE FROM THE CODE--
+                       extern double g_taxrate;
+                       extern double g_discount; These variables were declared external in RideRequest module and were accessed in main fle...]
+
+# Point 2: Static Variables-------------------------------------
+Well, the static keyword in C++ is mainly used when we need to allocate a single memory to a variable and that Variables is not changed throughout the code. For instance, if we have a function that we call multiple times for that case compiler only allocates memory once for the static variable , no matter how many times function is called...
+
+[EXAMPLE FROM THE CODE--
+                       void RideRequest::display() const {
+                        static int requestCounter = 1;  // it counts the number of RideRequest and retains its value of function call,results in sequential order of rides without any conflicts of sequence
+                        ....rest of the code
+                       }]
+
+# Point 3: Changes in RideRequest [Part-2]-------------------------------------
+In the second part of workshop, I made several changes as mentioned in the instructions in [Header] as well as [CPP] file of RideRequest module...
+First change I made was changing the variable of description to pointer type, and adding the destructor to my header file for RideRequest, and copy constructor and copy assignment operator as well to my header file for deep copying in my header file. 
+Secondly, moving towards the cpp file for RideRequest I implemented the new additions , such as rewriting the constructor and declaring rideDescription to null pointer, to avoid any memory leaks.I also copied the member variables from an existing object into a new one using the copy constructor, making sure that there was dynamic memory allocation for the ride description to ensure stability.
+[EXAMPLE FROM THE CODE--
+                strcpy(m_customerName, other.m_customerName);
+
+                // Copy ride description
+                m_rideDescription = new char[strlen(other.m_rideDescription) + 1];
+                strcpy(m_rideDescription, other.m_rideDescription);
+
+                // Copy ride price
+                m_ridePrice = other.m_ridePrice;
+
+               // Copy discount status
+               m_hasDiscount = other.m_hasDiscount; ]
+
+To prevent extra effort when assigning an object to itself, I implemented a self-assignment check to the copy assignment operator. By reallocating the old memory and allocating fresh memory for the copy, I also managed dynamic memory correctly.Lastly I added  a destructor to free the memory to prevent any memory leaks.....
+[EXAMPLE FROM THE CODE--
+                        RideRequest &RideRequest::operator=(const RideRequest &other)
+{
+    if (this != &other)
+    { 
+        delete[] m_rideDescription;
+
+        strcpy(m_customerName, other.m_customerName);
+
+        if (other.m_rideDescription != nullptr) {
+            m_rideDescription = new char[strlen(other.m_rideDescription) + 1];
+            strcpy(m_rideDescription, other.m_rideDescription);
+        } else {
+            m_rideDescription = nullptr;
+        }
+
+        m_ridePrice = other.m_ridePrice;
+
+        m_hasDiscount = other.m_hasDiscount;
+    }
+    return *this;
+}
+]
+
+
+# Point 4: Problems I faced while working with the assignment-----------------------------------
+There were  some problems I faced while working with the assignment,such as declaration of Global variables such as g_taxrate and g_discount,
+When i declared them as external variables, I forgot to initialize them to zero, which gave an error of un-initialized  values and also I declared them twice , once in RideRequests.cpp and once in Main.cpp.
+Secondly, I forgot to initialize the description pointer to zero, which gave error in matrix and jump at line 11.
+
+
+

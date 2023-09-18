@@ -1,0 +1,4 @@
+O,George,Customer requested to make a stop to buy a birthday cake for a colleague.,17.99,Y
+H,Sarah,Customer was shopping; use a car with a big trunk.,15.95,N
+H,Vanessa,Customer likes classical music. Have a playlist with Beethoven symphonies ready.,8.59,Y
+O,Joe,There is construction work on Yonge; use an alternative route!,25.49,N
