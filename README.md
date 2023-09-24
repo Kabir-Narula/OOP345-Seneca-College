@@ -8,7 +8,7 @@ Hello there! I'm thrilled to have you here. As a passionate college student deep
 Here's a glimpse of the remarkable marks I secured in each workshop and milestone:
 
 ### Workshops
-- Workshop 01: 9/10  // incorrect header guard inclusion order
+- Workshop 01: 9/10               // incorrect header guard inclusion order
 - Workshop 02: /10
 - Workshop 03: /10
 - Workshop 04: /10
