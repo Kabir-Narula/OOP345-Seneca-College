@@ -1,0 +1,71 @@
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+//I did all the code by myself and only copied the code given by professor 
+//provided to complete my workshops and assignments.
+
+                                                           [---------------REFLECT-----------------]
+ 
+In this workshop I understood various deep concepts  of copy and move semantics and  how they provide more efficiency when large data files is processed. This workshop challenged me to not only implement the required functionality for the AirportLog class but also to create a Timer class to measure execution times. 
+
+                                                            [---------------Question 1-----------------]
+  
+One of the core objectives of this workshop was to gain a profound understanding of copy and move semantics. These concepts play a pivotal role in optimizing code performance, especially when dealing with resource management. 
+
+The significant time difference between copy and move operations can be attributed due to several reasons....
+
+Copy Semantics: A deep copy of an object's data is made when it is copied. In order to do this, new memory must be allocated, the contents of the source object copied to the new memory, and the old memory must be released. This procedure takes a long time by nature, especially when dealing with huge objects or objects containing resource-intensive data.
+
+Move Semantics: Contrarily, move semantics involve the transfer of resource ownership from a source object to a target object. Move semantics produces a lightweight operation since it "moves" the resource pointers rather than copying the data.
+
+In essence, move semantics avoid redundant data copying and memory allocations, leading to significantly faster execution times. This speedup becomes especially noticeable when working with large datasets or resource-heavy objects. So, the choice between copy and move semantics depends on the specific use case and the desire for performance optimization.
+
+ 
+                                                            [---------------Question 2-----------------]
+
+
+To populate the AirportLog object, I had to read data from an external file (airport_data.csv). This file contained CSV data, and I used the std::ifstream object to process it. A notable challenge was skipping the header line, which didn't contain actual airport data. 
+
+Count Records: I first opened the file and counted all the records, excluding the header line. This process was essential for figuring out how big the dynamic array would need to be in order to contain the airport data.
+
+ifstream file(filename);
+if (file.is_open()) {
+    // Counting the number of records (excluding the header)
+    while (file.get(newline)) {
+        if (newline == '\n')
+            numRecords++;
+    }
+}
+
+numAirports = numRecords - 1; // Excluding the header
+airports = new Airport[numAirports];
+
+Read and Parse Data: Once I had the record count, I used getline to skip the header line and reset the file pointer to the beginning before reading and parsing the actual airport data. Reading each line, dividing it into fields using the, character as the delimiter, and then filling in the characteristics of each Airport object were the steps involved in this process
+
+// Skipping the header line
+file.clear();
+file.seekg(0, ios::beg);
+getline(file, ignoreLine);
+
+// Reading and parsing actual airport data
+for (size_t i = 0; i < numAirports; i++) {
+    getline(file, airports[i].code, ',');
+    // ... (read and parse other attributes)
+}
+
+This approach allowed me to efficiently read the data from the file while disregarding the header line.
+
+Regarding avoiding rereading the file, in this particular scenario, rereading is required because the file is first read sequentially to count the records, and then it is read once more to fill the dynamic array. To parse and extract the real airport data into Airport objects, a second pass is required.Even though it might seem redundant, this strategy guarantees correct data retrieval and sensible memory allocation.
+
+The only way I can think might work to avoid rereading the file is  to keep the airport information temporarily while counting using a dynamic data structure like a vector before creating the dynamic array with the appropriate size. The file would still need to be read twice as a result of this, but with different data structures.
+
+                                                                 [---------------Question 3-----------------]
+
+The steady_clock is the best tool for measuring exact time intervals, especially in situations when performance is crucial. It provides a reliable and constant measurement of time intervals, making it resistant to changes in the operating system that can impact other clocks. When exact timing is necessary, such as when benchmarking code segments or calculating the length of crucial processes, it should be employed.
+
+System Clock: On the other hand, changes done at the system level to ensure accurate timekeeping have an impact on the system_clock. It often serves as a means of accessing the most recent system time and reflects any alterations made there. When you need to work with wall-clock time, such as getting the current date and time, you should utilize the system_clock
+
+In a nutshell steady_clock is the most effective for determining accurate time intervals, but system_clock is better for learning the system time. Whether you choose high precision or accurate timekeeping data relies on your application.
