@@ -28,11 +28,8 @@ Here's a glimpse of the remarkable marks I secured in each workshop and mileston
 
 ## Personal Notes
 
-Amidst my journey in this course, I've compiled comprehensive notes that delve into the core topics and concepts of C++. These notes are a treasure trove of knowledge, spanning fundamentals of the language, object-oriented programming, control statements, arrays, functions, and file handling, among others. With practical examples and exercises woven in, these notes stand as a valuable resource for beginners and those seeking to deepen their C++ expertise. Feel free to access the course notes at [C++ Workshop Notes](https://github.com/LeviAcker25/C--Plus-Plus-Notes). It's my hope that these resources assist you in your endeavor to evolve into a skilled C++ developer. Happy learning!
+ I've compiled comprehensive notes that delve into the core topics and concepts of C++. These notes are a treasure trove of knowledge, spanning fundamentals of the language, object-oriented programming, control statements, arrays, functions, and file handling, among others. With practical examples and exercises woven in, these notes stand as a valuable resource for beginners and those seeking to deepen their C++ expertise. Feel free to access the course notes at [C++ Workshop Notes](https://github.com/LeviAcker25/C--Plus-Plus-Notes). It's my hope that these resources assist you in your endeavor to evolve into a skilled C++ developer. Happy learning!
 
-## Project Structure
-
-This repository is organized in a structured manner, with each workshop and milestone having its own dedicated directory. Inside each directory, you'll find detailed explanations of the assignments, along with the corresponding source code and any additional resources used. I've also included README files within each directory to provide context and insights into the solutions.
 
 ## Disclaimer
 
