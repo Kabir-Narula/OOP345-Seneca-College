@@ -1,0 +1,11 @@
+#Name, Weight, Price Per Gram, Features
+      Buffalo Gouda        , 500  ,2.99,        Sweet        , Creamy
+  Bulgarian Feta       ,800  ,  3.12,      Soft,     Crumbly,   Tangy
+      Brie with Truffles   ,   600  ,8.45,Soft    ,Pungent    ,Savory    
+   Smoked Mozzarella    ,   2000 ,2.12 ,Low-Moisture,    Semi-Soft,    Smokey
+  Tre Stelle Ricotta   ,1200 , 3.45 ,Creamy     ,    Light,Sweet
+Old Orange Cheddar   ,  700  ,  2.56,Sharp     ,   Hard
+      Le Rustique Camembert,      450  ,1.99,Moist    ,   Soft,  Creamy
+    Provolone            ,      350  ,2.66,Semi-Hard,    Sweet,   Sharp
+   Manchego             ,     200  ,2.00,Firm,   Compact,   Buttery
+Swiss, 4000 ,2.45    ,     Semi-Hard,Spicy

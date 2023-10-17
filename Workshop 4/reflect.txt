@@ -1,0 +1,99 @@
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+// I did all the code by myself and only copied the code given by professor
+// provided to complete my workshops and assignments.
+
+Question 1:----------------------------------------------------------------
+
+Composition is a strong relationship where one class (the whole) is responsible for the creation and destruction of the other class (the part). In the CheeseShop class, m_pCheeses is a composition because it directly owns an array of pointers to Cheese objects. When a CheeseShop object is created or destroyed, it manages the memory of the Cheese objects it contains. This means when a CheeseShop object is deleted, it ensures all associated Cheese objects are also properly deallocated.
+
+class CheeseShop {
+    std::string m_name;
+    const Cheese** m_pCheeses;
+    size_t m_size;
+    // ...
+};
+
+Aggregation is a weaker relationship where one class (the whole) contains pointers or references to another class (the part) without having ownership. In the CheeseParty class, m_pCheeses is an aggregation because it holds pointers to Cheese objects without managing their lifetime. It means that when a CheeseParty object is deleted, it does not deallocate the memory occupied by the Cheese objects. They have a life beyond the CheeseParty class.
+
+class CheeseParty {
+    const Cheese** m_pCheeses;
+    size_t m_size;
+    // ...
+};
+
+Question 2:----------------------------------------------------------------
+
+CheeseShop:
+Copy Semantics (CheeseShop(const CheeseShop &source), operator=(const CheeseShop &source)): When a CheeseShop object is copied, a new CheeseShop object is created, and a deep copy of the Cheese objects is made. This means new Cheese objects are created, and the data from the source Cheese objects is copied into the new objects. This results in two independent sets of Cheese objects, one in the source CheeseShop and one in the newly created CheeseShop.
+
+
+
+Move Semantics (CheeseShop(CheeseShop &&source), operator=(CheeseShop &&source)): When a CheeseShop object is moved, the ownership of the Cheese objects is transferred from the source object to the destination object. The pointers to Cheese objects in the source CheeseShop are moved to the destination CheeseShop, and the source CheeseShop is left in a valid but unspecified state. This allows for efficient transfer of ownership without unnecessary copying of data.
+
+
+
+CheeseParty:
+Copy Semantics (CheeseParty(const CheeseParty &source), operator=(const CheeseParty &source)): Similar to CheeseShop, when a CheeseParty object is copied, new CheeseParty object is created, and a deep copy of the Cheese objects is made. New Cheese objects are created, and the data from the source Cheese objects is copied into the new objects.
+
+Move Semantics (CheeseParty(CheeseParty &&source), operator=(CheeseParty &&source)): In move operations, the ownership of the Cheese objects is transferred from the source CheeseParty to the destination CheeseParty. The pointers to Cheese objects in the source CheeseParty are moved to the destination CheeseParty, and the source CheeseParty is left in a valid but unspecified state.
+
+
+
+Question 3:----------------------------------------------------------------
+
+Composition (CheeseShop):
+In CheeseShop, the addCheese function creates a new Cheese object and takes ownership of it. It performs a deep copy of the Cheese object, ensuring each cheese in the shop has unique ownership and memory allocation.
+
+CheeseShop& CheeseShop::addCheese(const Cheese& cheese) {
+    m_newCheese = new const Cheese(cheese); // Deep copy of Cheese object
+    // Add the new cheese and update the size
+    // ...
+    return *this;
+}
+
+Aggregation (CheeseParty):
+In CheeseParty, the addCheese function accepts a reference to an existing Cheese object and adds a pointer to it. This allows multiple parties to share the same cheese instance without copying. It's a shallow copy operation as it only copies the address of the existing Cheese object.
+
+CheeseParty& CheeseParty::addCheese(const Cheese& cheese) {
+    // Add a pointer to the existing cheese object
+    // ...
+    return *this;
+}
+
+Question 4:----------------------------------------------------------------
+
+To implement the removeCheese function in the CheeseShop class, function should find the cheese to remove, deallocate its memory, and adjust the pointers to maintain the integrity of the CheeseShop object. 
+
+Pseudocode illustration:---
+
+void CheeseShop::removeCheese(const Cheese& cheeseToRemove) {
+    for (size_t i = 0; i < m_size; ++i) {
+        if (m_pCheeses[i] && *m_pCheeses[i] == cheeseToRemove) {
+            delete m_pCheeses[i];
+            for (size_t j = i; j < m_size - 1; ++j) {
+                m_pCheeses[j] = m_pCheeses[j + 1];
+            }
+            --m_size;
+            break;
+        }
+    }
+}
+
+In this pseudocode:
+
+The function takes a Cheese object as a parameter, representing the cheese to be removed.
+It iterates through the m_pCheeses array to find the matching cheese.
+When a matching cheese is found, its memory is deallocated using the delete keyword.
+The remaining cheeses are shifted left to fill the gap created by removing the cheese.
+The m_size variable is decremented to reflect the removal of the cheese.
+
+
+Also, a destructor in the Cheese class to ensure that the dynamically allocated memory for each cheese is properly deallocated when a Cheese object is destroyed. 
+
+Cheese::~Cheese() {
+}

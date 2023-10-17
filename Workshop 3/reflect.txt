@@ -1,0 +1,44 @@
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+//I did all the code by myself and only copied the code given by professor 
+//provided to complete my workshops and assignments.
+
+
+                                                  [---------------Question 1-----------------]
+
+class objects defined outside the class definition (static data members) are declared within the class but are defined (memory allocation) outside the class. This separation is essential when the class is a template, as templates are usually defined in header files. Defining static data members outside the class ensures that memory is allocated only once for these members, preventing multiple definitions in different translation units.
+
+template <typename T, unsigned C>
+T Collection<T, C>::m_smallestItem = 9999;
+template <typename T, unsigned C>
+T Collection<T, C>::m_largestItem = -9999;
+
+                                                  [---------------Question 2-----------------]
+
+In the Collection class, m_smallestItem and m_largestItem are specializations for Book and a collection size of 10. The reason for this specialization is to provide appropriate initial values for these items. For the Book specialization, initializing m_smallestItem with a high ratio (10000) and m_largestItem with a low ratio (1) ensures that any valid book added to the collection will have a ratio falling within this range. Specializing these values helps maintain accurate comparisons during the addition of items to the collection.
+
+
+template<>
+class Collection<Book, 10> {
+    // ...
+    Book m_smallestItem = {"", 1, 10000};
+    Book m_largestItem = {"", 10000, 1};
+    // ...
+};
+
+                                                   [---------------Question 3-----------------]
+
+In the OrderedCollection class, m_smallestItem and m_largestItem are initialized for Book and a collection size of 72. This initialization is necessary because it sets initial values for these items before any valid book objects are added to the collection. Initializing these items ensures that there are valid values for comparison when books are added to the collection. Without this initialization, comparing uninitialized or garbage values could lead to incorrect comparisons and sorting behavior.
+
+template<>
+class Collection<Book, 72> {
+    // ...
+    Book m_smallestItem = {"", 1, 10000};
+    Book m_largestItem = {"", 10000, 1};
+    // ...
+};
+
