@@ -1,0 +1,88 @@
+Australia                Melbourne                [None]                   2020 500  300
+Australia                Melbourne                Gamma                    2021 700  200            
+Canada                   Toronto                  Alpha                    2019 324  100
+Italy                    Venice                   [None]                   2021 555  150
+France                   Nice                     Alpha                    2019 222  120
+Canada                   Ottawa                   Alpha                    2019 665  110
+Canada                   Vancouver                Gamma                    2019 932  240
+Canada                   Edmonton                 Delta                    2019 234  104
+United States            New York                 Omicron                  2019 743  143
+India                    Chennai                  Alpha                    2019 678  178
+United States            New York                 Omicron                  2020 784  184
+Australia                Perth                    Omicron                  2019 345  145 
+United States            New York                 Omicron                  2021 432  132
+Japan                    Osaka                    Delta                    2019 121  121
+United States            Denver                   Omicron                  2019 65   45
+Canada                   Vancouver                [None]                   2020 32   22
+United States            Denver                   Omicron                  2020 21   20
+Italy                    Florence                 Delta                    2019 544  344
+United Kingdom           London                   Omicron                  2021 321  221
+China                    Beijing                  Gamma                    2021 674  374
+United Kingdom           Manchester               Gamma                    2019 748  448
+Canada                   Ottawa                   Alpha                    2020 800  500
+United Kingdom           Manchester               [None]                   2020 900  400
+United States            Denver                   Omicron                  2021 214  114
+India                    Bengaluru                Alpha                    2021 567  367
+United States            Georgia                  Alpha                    2019 421  321
+France                   Paris                    Gamma                    2021 452  152
+United States            Georgia                  Alpha                    2020 764  464
+China                    Shanghai                 Alpha                    2020 812  412
+India                    Chennai                  [None]                   2021 313  213
+Australia                Sydney                   Alpha                    2020 456  356
+Japan                    Tokyo                    Delta                    2019 890  490
+Japan                    Tokyo                    Delta                    2020 980  480
+Canada                   Edmonton                 Delta                    2021 231  131
+United States            Georgia                  [None]                   2021 190  90
+Canada                   Toronto                  Alpha                    2020 180  80
+United Kingdom           London                   Omicron                  2019 170  70
+France                   Lyon                     Omicron                  2021 160  60
+India                    Bengaluru                Alpha                    2020 111  11
+United Kingdom           London                   Omicron                  2020 433  33
+Japan                    Sapporo                  [None]                   2019 478  78
+India                    Mumbai                   Alpha                    2020 498  98
+United Kingdom           Manchester               Gamma                    2021 488  88
+China                    Wuhan                    Omicron                  2021 230  30
+Australia                Sydney                   Alpha                    2019 520  20
+India                    Chennai                  Alpha                    2020 790  435
+Australia                Sydney                   Alpha                    2021 690  390
+Italy                    Venice                   Omicron                  2019 590  245
+Italy                    Venice                   Omicron                  2020 490  222
+Australia                Melbourne                Gamma                    2019 390  111
+China                    Beijing                  Gamma                    2021 290  190
+United Kingdom           Cambridge                [None]                   2019 420  400
+France                   Paris                    Gamma                    2020 520  500
+United Kingdom           Cambridge                Delta                    2020 620  600
+Italy                    Rome                     Omicron                  2019 720  520
+France                   Nice                     Alpha                    2020 820  520
+France                   Nice                     Alpha                    2021 920  420
+India                    Mumbai                   [None]                   2019 169  69
+China                    Shanghai                 Alpha                    2021 159  100
+United Kingdom           Cambridge                Delta                    2021 149  149
+France                   Paris                    Gamma                    2019 139  100
+France                   Lyon                     Omicron                  2019 100  98
+Canada                   Ottawa                   Alpha                    2021 500  400
+United Kingdom           Wembly                   Alpha                    -333 31   22
+France                   Lyon                     Omicron                  2020 600  350
+Canada                   Vancouver                Gamma                    2021 333  233
+India                    Mumbai                   Alpha                    2021 121  21
+India                    Bengaluru                Alpha                    2019 453  153
+China                    Beijing                  Gamma                    2020 654  154
+Italy                    Rome                     Omicron                  2020 765  165
+Canada                   Edmonton                 Delta                    2020 876  276
+Italy                    Rome                     Omicron                  2021 987  187
+Italy                    Florence                 Delta                    2020 377  177
+Italy                    Florence                 Delta                    2021 566  166
+Japan                    Tokyo                    Delta                    2021 676  100
+Japan                    Osaka                    Delta                    2020 787  187 
+Japan                    Sapporo                  Delta                    2020 99   56
+Japan                    Sapporo                  Delta                    2021 555  155
+China                    Beijing                  Gamma                    2019 444  144
+China                    Shanghai                 Alpha                    2019 333  133
+Canada                   Hamilton                 Gamma                    -432 211  222
+China                    Wuhan                    Omicron                  2019 222  122
+China                    Wuhan                    Omicron                  2020 777  177
+Australia                Perth                    Omicron                  2020 954  154
+Japan                    Osaka                    Delta                    2021 765  165 
+Australia                Perth                    Omicron                  2021 898  198
+Canada                   Toronto                  Alpha                    2021 844  144
+Qatar                    Doha                     Omicron                  -44  432  12

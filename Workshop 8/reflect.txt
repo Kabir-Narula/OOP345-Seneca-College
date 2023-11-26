@@ -1,0 +1,24 @@
+
+// Workshop 8 - Smart Pointers
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+// I did all the code by myself and only copied the code given by professor
+// provided to complete my workshops and assignments.
+
+Question 1 - Smart Pointers and Memory Management:
+Smart pointers bring a significant advancement in memory management by automating the deallocation process. In the utils.cpp file, specifically within the excludeRaw function, we encounter a scenario where manual deallocation is necessary. Since we dynamically allocate memory for the Profile object, failure to manually deallocate it could result in a memory leak. On the other hand, in the excludeSmart function, where we use smart pointers, the memory deallocation process is automated. With smart pointers, we no longer need to explicitly handle the cleanup, making our code cleaner and less error-prone.
+
+Question 2 - Syntax Differences Between Raw and Smart Pointers:
+When working with raw pointers, regular memory allocation and deallocation are required. Furthermore, to handle exceptions thrown by other files, we encapsulate these activities into try and catch blocks. Smart pointers, on the other hand, make the allocation process easier. We construct, validate, and add the pointer, and the smart pointers handle the cleanup for us. This grammar simplification not only minimises boilerplate code, but also enhances code readability.
+
+Question 3 - Object Duplication Issue:
+The results revealed a significant problem with object duplication throughout the exclusion procedure. The repeated copies are the result of the operation sequence: we make a copy of the profile, validate it, and then add it again. As a result, unneeded duplication occurs. A redesign of the application logic is proposed to address this. We may avoid producing duplicate copies of valid profiles by verifying first and copying last, ensuring that only valid profiles are added to the collection.
+
+Question 4 - Experiment with Move Semantics:
+When comparing the experiment with std::move() to the one with database, not many differences were detected.push_back(*newItem). Adding a move constructor to the Profile class caused serious problems, complicating the implementation. The default move semantics supplied by smart pointers, as well as the default copy semantics, appear to operate well in our environment. As a result, the addition of a custom move constructor may not be essential and may bring problems.
+
+

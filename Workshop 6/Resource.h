@@ -1,0 +1,39 @@
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+//I did all the code by myself and only copied the code given by professor 
+//provided to complete my workshops and assignments.
+
+#pragma once
+// Workshop 6 - STL Containers
+// 2021/12/05 - Gideon
+
+#ifndef SDDS_RESOURCE_H
+#define SDDS_RESOURCE_H
+
+#include <iostream>
+#include <string>
+#include "Flags.h"
+
+namespace sdds {
+    class Resource {
+    protected:
+        // Stores the name of the resource
+        std::string m_name{};
+        // Stores the absolute path of the folder where the resource is located
+        std::string m_parent_path = "/";
+
+    public:
+        virtual void update_parent_path(const std::string&) = 0;
+        virtual std::string name() const = 0;
+        virtual int count() const = 0;
+        virtual std::string path() const = 0;
+        virtual size_t size() const = 0;
+        virtual NodeType type() const = 0;
+        virtual ~Resource() = default;
+    };
+}  // namespace sdds
+
+#endif

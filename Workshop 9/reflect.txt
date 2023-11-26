@@ -1,0 +1,76 @@
+//==============================================
+// Name           : Kabir Narula
+// Email          : Knarula9@myseneca.ca
+// Student ID     : 127962223
+// Section        : NAA
+//==============================================
+//I did all the code by myself and only copied the code given by professor 
+//provided to complete my workshops and assignments.
+
+
+### 1. Was there any benefit from using binary files in this workshop?
+
+Certainly! The use of binary files in this workshop provided important advantages. For example, they ensured data storage efficiency, which is especially important for huge datasets, by lowering storage requirements and speeding up file I/O operations. Furthermore, binary files kept the exact data types of recorded values, which is critical for maintaining numerical precision in operations such as computing averages and variances. Finally, binary files provided a direct representation of the data's memory layout. This direct representation proved useful for working with arrays of consistent information, improving numerical value storage and processing.
+
+// Part 1 - Loading data from a binary file
+ProcessData::ProcessData(const std::string& filename, int n_threads) {
+    std::ifstream file(filename, std::ios::binary);
+    // Read total_items and data from binary file
+    // ...
+}
+
+// Part 2 - Writing data to a binary file
+int ProcessData::operator()(const std::string& target_file, double& avg, double& var) {
+    // Open the target data file
+    std::ofstream file(target_file, std::ios::binary);
+    // Write total_items and data to the target file
+    // ...
+}
+
+### 2 : Why would it be important to bind a function to its arguments, and how was it useful in this workshop?
+
+Binding functions to their arguments, (std::bind) developed as a critical practise in the context of this workshop, particularly in the field of multi-threading. By permitting the customisation of thread-specific settings, this technique became important. Binding permitted the customization of function arguments for each thread in a multi-threaded environment where varied threads needed to handle distinct parts of data, ensuring that particular threads operated on specified data partitions. Furthermore, binding assured conformity with the required function signatures of thread generation functions such as std::thread, allowing for a more simplified method of creating callable objects appropriate for multi-threaded execution. Furthermore, this approach allowed for the encapsulation of both functions and their related arguments.
+
+void ProcessData::computeMultiThreadedAvg() {
+    // ...
+    // Create threads for average computation using std::bind
+    for (size_t i = 0; i < avgFactors.size(); ++i) {
+        avgThreads.emplace_back(std::bind(computeAvgFactor, data + p_indices[i], partitionSize,
+                                          total_items, std::ref(avgFactors[i])));
+    }
+    // ...
+}
+
+void ProcessData::computeMultiThreadedVar() {
+    // ...
+    // Create threads for variance computation using std::bind
+    for (size_t i = 0; i < varFactors.size(); ++i) {
+        varThreads.emplace_back(std::bind(computeVarFactor, data + p_indices[i], partitionSize,
+                                          total_items, avg, std::ref(varFactors[i])));
+    }
+    // ...
+}
+
+
+### 3: What are the advantages of using multiple threads, and how did you accomplish multi-threading in this workshop?
+
+The benefits of using numerous threads lie in improving computing efficiency, and multi-threading was used to achieve parallelism and optimise performance in this workshop. Tasks can be completed concurrently by using several threads, making efficient use of available CPU cores. This concurrent processing results in faster computation times and overall performance improvements. In the case of this workshop, where computing averages and variances requires complex calculations, using multiple threads allows the system to conduct these operations concurrently, considerably lowering computation time.
+In this workshop, multi-threading was implemented by dividing the data into multiple parts, with each thread responsible for processing a distinct portion. The std::thread class and the std::bind function were employed to create and manage threads. The std::bind function was particularly useful in binding specific arguments to functions before passing them to threads, allowing customization of thread-specific parameters. This customization ensured that each thread operated on a specific data partition, contributing to efficient parallel processing. 
+
+void ProcessData::computeMultiThreadedAvg() {
+    // Create threads for average computation
+    for (size_t i = 0; i < avgFactors.size(); ++i) {
+        avgThreads.emplace_back(std::bind(computeAvgFactor, data + p_indices[i], partitionSize,
+                                          total_items, std::ref(avgFactors[i])));
+    }
+}
+
+
+void ProcessData::computeMultiThreadedVar() {
+    // Create threads for variance computation
+    for (size_t i = 0; i < varFactors.size(); ++i) {
+        varThreads.emplace_back(std::bind(computeVarFactor, data + p_indices[i], partitionSize,
+                                          total_items, avg, std::ref(varFactors[i])));
+    }
+
+}

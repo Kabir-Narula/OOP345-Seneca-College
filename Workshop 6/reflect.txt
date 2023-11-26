@@ -1,0 +1,34 @@
+              ---------------------------------------Reflect Workshop 6:---------------------------------
+
+
+
+Question-1:  Dynamically Allocated Memory in Vectors:
+
+It was crucial to comprehend the significance of deallocating dynamically allocated memory within vectors. I made sure that the delete keyword was used appropriately to deallocate each resource kept in the m_contents vector in the Directory class, notably in the destructor. By taking this action, memory leaks were avoided and the program's integrity was preserved.
+
+Directory::~Directory() {
+    for (Resource* resource : m_contents) {
+        delete resource;
+    }
+}
+
+Question-2: Calling Functions for Directory Objects Stored in Resource*:
+
+To perform operations specific to Directory objects stored in Resource*, I utilized dynamic casting. In the Filesystem class, when changing the current directory, I used dynamic casting to ensure that the target directory was indeed of type Directory. This dynamic casting allowed me to invoke member functions specific to the Directory class.
+
+
+Directory* Filesystem::change_directory(const std::string& dirName) {
+    // ...
+    Resource* targetDir = m_root->find(dirName, vector<OpFlags>{OpFlags::RECURSIVE});
+    if (targetDir && targetDir->type() == NodeType::DIR) {
+        m_current = dynamic_cast<Directory*>(targetDir);
+    }
+    // ...
+}
+
+Question-3: Using std::vector<sdds::Resource*> vs. std::vector<sdds::Resource>:
+
+Using std::vector<sdds::Resource*> was a crucial decision in order to support diverse objects and polymorphism. The ability to save references to Resource objects made it possible to integrate many resource kinds into a single container with ease. By maintaining the polymorphic behaviour, this method allowed me to operate consistently with objects of different derived classes. The use of std::vector<sdds::Resource> would have resulted in object slicing and the loss of derived class-specific data. By using pointers, the entire object structure was preserved and certain operations could be carried out depending on the real derived class type.
+
+std::vector<sdds::Resource*> m_contents;
+ 

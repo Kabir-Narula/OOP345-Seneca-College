@@ -1,0 +1,48 @@
+I made substantial use of a variety of Standard Template Library (STL) methods throughout this course to construct a C++ Covid data collection system. Mainly, std::sort, std::find_if, std::copy_if, and std::getline are used as STL functions. Every choice was carefully chosen after taking into account each one's unique benefits and features.
+Also, I had trouble maintaining precise alignment and spacing when figuring up the overall number of cases and fatalities. In order to get around this, I went back through the course notes on stream manipulators like setw and right and utilised lambda functions with std::for_each to iterate through the collection in a clear and succinct manner.
+
+Question -1) STL Functions Used:
+
+A) std::sort: Chosen for sorting the collection of Covid objects based on different fields. It is efficient and provides a concise syntax for sorting a range.
+
+std::sort(m_collection.begin(), m_collection.end(), [](const Covid& a, const Covid& b) {
+    return a.m_country < b.m_country;
+});
+
+B) std::find_if: Utilized for searching within the collection based on a specified condition. It simplifies the code and enhances readability.
+
+auto it = std::find_if(m_collection.begin(), m_collection.end(), [=](const Covid item) {
+    return (country == item.m_country && variant == item.m_variant && item.m_deaths > deaths);
+});
+
+C) std::copy_if: Employed for copying elements from the collection that satisfy a given condition. This STL function makes the code more concise and readable.
+
+ std::list<Covid> result;
+std::copy_if(m_collection.begin(), m_collection.end(), std::back_inserter(result),
+             [&](const Covid &item) { return item.m_deaths >= deaths; });
+
+D) std::getline: Used for reading lines from a file with specified delimiters, simplifying the process of parsing input.
+
+while (getline(file, line, ',')) {
+    // Process fields from the line...
+}
+
+Question -2) Advantages of Using STL Algorithms vs. Loops:
+
+There are several benefits to using STL algorithms instead of manual loop implementations. First off, because STL algorithms provide a more expressive and clear syntax, the code is much easier to read. For example, using std::sort improves code comprehension because it automatically conveys the purpose to sort a range. Second, one noteworthy advantage is that STL algorithms can concisely replace multiple lines of loop code with a single line, making the code more manageable and compact.  Furthermore, the reusability of STL algorithms is encouraged by their generic design, which makes it possible to use the same algorithm consistently.
+
+Question -3) Redesigning the Sorting Function:
+
+I created an enum class (SortField) to represent legitimate sorting options in order to stop clients from specifying an invalid field during sorting. I decreased the possibility of runtime errors resulting from misspellings or supplying erroneous fields by employing an enum to restrict the client to selecting from a predetermined list of valid fields.
+
+enum class SortField { COUNTRY, CITY, VARIANT, YEAR, CASES, DEATHS };
+
+void CovidCollection::sort(SortField field) {
+    switch (field) {
+        case SortField::COUNTRY:
+            std::sort(m_collection.begin(), m_collection.end(), [](const Covid& a, const Covid& b) {
+                return a.m_country < b.m_country;
+            });
+            break;
+    }
+}
