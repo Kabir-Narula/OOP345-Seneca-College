@@ -1,13 +1,4 @@
 
-// Workshop 8 - Smart Pointers
-//==============================================
-// Name           : Kabir Narula
-// Email          : Knarula9@myseneca.ca
-// Student ID     : 127962223
-// Section        : NAA
-//==============================================
-// I did all the code by myself and only copied the code given by professor
-// provided to complete my workshops and assignments.
 
 Question 1 - Smart Pointers and Memory Management:
 Smart pointers bring a significant advancement in memory management by automating the deallocation process. In the utils.cpp file, specifically within the excludeRaw function, we encounter a scenario where manual deallocation is necessary. Since we dynamically allocate memory for the Profile object, failure to manually deallocate it could result in a memory leak. On the other hand, in the excludeSmart function, where we use smart pointers, the memory deallocation process is automated. With smart pointers, we no longer need to explicitly handle the cleanup, making our code cleaner and less error-prone.
