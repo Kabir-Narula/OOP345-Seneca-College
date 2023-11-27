@@ -3,14 +3,7 @@
 // 2022/1/5 - Jeevan Pant
 // 2023/11/17 - Cornel
 
-//==============================================
-// Name           : Kabir Narula
-// Email          : Knarula9@myseneca.ca
-// Student ID     : 127962223
-// Section        : NAA
-//==============================================
-//I did all the code by myself and only copied the code given by professor 
-//provided to complete my workshops and assignments.
+
 
 #include <iostream>
 #include <iomanip>
