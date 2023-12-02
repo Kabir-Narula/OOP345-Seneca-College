@@ -1,10 +1,4 @@
-// Name: Kabir Narula
-// Seneca Student ID: 127962223
-// Seneca email: knarula9@myseneca.ca
-// Date of completion: 11 November 2023
-//
-// I confirm that I am the only author of this file
-//   and the content was created entirely by me.
+
 
 #define _CRT_SECURE_NO_WARNINGS
 #include "Station.h"
